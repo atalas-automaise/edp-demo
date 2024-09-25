@@ -9,19 +9,22 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
+
+        /* Make sure the image takes full width and starts at the top */
         .screenshot {
-            width: 100%;
-            max-width: 1200px;
-            height: auto;
-            position: relative;
-        }
-        .chat-widget {
+            width: 100vw;  /* 100% of the viewport width */
+            height: auto;  /* Maintain aspect ratio */
             position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;   /* Put the image behind the chat widget */
+        }
+
+        /* Style for the chat widget */
+        .chat-widget {
+            position: fixed;
             bottom: 20px;
             right: 20px;
             width: 300px;
@@ -31,6 +34,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         @media (max-width: 768px) {
             .chat-widget {
                 width: 100%;
@@ -43,12 +47,13 @@
     </style>
 </head>
 <body>
-    <div style="position: relative;">
-        <img src="edp_site.png" alt="Client Website" class="screenshot">
-        <div class="chat-widget">
-            <!-- Embed your chat widget code here -->
-            <script atmz-key="f4a83eff-cfaf-1c7d-2e05-7a10cfe7d60c" atmz-id="62d8cd65-31ea-2a0e-31e6-b038b7062b92" atmz-use-session-storage="false" atmz-title-localized="{&quot;default&quot;:&quot;&quot;}" atmz-help-messages-localized="{&quot;default&quot;:&quot;Ol&#225;, sou o seu assistente virtual EDP! &quot;}" atmz-keep-toggle-icon="false" atmz-persist-help-msg="true" atmz-dropdown-menu="true" atmz-input-maxlength="512" src="https://static.automaise.com/WebChat/versions/2.1.1/index.js"></script>
-        </div>
+    <!-- The image will fill the whole viewport width and start at the top -->
+    <img src="screenshot.png" alt="Client Website" class="screenshot">
+    
+    <!-- Chat widget remains fixed at the bottom-right -->
+    <div class="chat-widget">
+        <!-- Embed your chat widget code here -->
+        <script atmz-key="f4a83eff-cfaf-1c7d-2e05-7a10cfe7d60c" atmz-id="62d8cd65-31ea-2a0e-31e6-b038b7062b92" atmz-use-session-storage="false" atmz-title-localized="{&quot;default&quot;:&quot;&quot;}" atmz-help-messages-localized="{&quot;default&quot;:&quot;Ol&#225;, sou o seu assistente virtual EDP! &quot;}" atmz-keep-toggle-icon="false" atmz-persist-help-msg="true" atmz-dropdown-menu="true" atmz-input-maxlength="512" src="https://static.automaise.com/WebChat/versions/2.1.1/index.js"></script>
     </div>
 </body>
 </html>
