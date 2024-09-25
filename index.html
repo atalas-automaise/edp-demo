@@ -12,14 +12,15 @@ _s<!DOCTYPE html>
             overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
-        /* Make sure the image takes full width and starts at the top */
+        /* Adjust the screenshot to fit the viewport */
         .screenshot {
-            width: 100vw;  /* 100% of the viewport width */
-            height: auto;  /* Maintain aspect ratio */
             position: absolute;
             top: 0;
             left: 0;
-            z-index: -1;   /* Put the image behind the chat widget */
+            width: 100vw; /* Make sure it spans the width of the viewport */
+            height: 100vh; /* Make sure it spans the height of the viewport */
+            object-fit: contain; /* Ensure the image fits without distortion */
+            z-index: -1; /* Behind the chat widget */
         }
 
         /* Style for the chat widget */
